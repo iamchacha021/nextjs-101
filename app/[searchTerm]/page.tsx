@@ -30,7 +30,7 @@ export async function generateMetadata({ params: { searchTerm }}: Props){
 }
 
 export default async function SearchResults({ params: { searchTerm }}: Props) {
-    const wikiData: Promise<SearchResult> = getWikiResults(searchTerm)
+    const wikiData: Promise<SearchResult> = getWikiResults(searchTerm.replaceAll('%20', ' '))
 
     const data = await wikiData
 
